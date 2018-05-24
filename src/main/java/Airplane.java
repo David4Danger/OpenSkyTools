@@ -1,7 +1,7 @@
 public class Airplane {
     private String icao24, callsign, origin_country, squawk;
     private Integer time_position, last_contact, position_source;
-    private Float longitude, latitude, geo_altitude, velocity, heading, vertical_rate, baro_altitude;
+    private Double longitude, latitude, geo_altitude, velocity, heading, vertical_rate, baro_altitude;
     private Boolean on_ground, spi;
 
     @Override
@@ -82,59 +82,59 @@ public class Airplane {
         this.position_source = position_source;
     }
 
-    public Float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    public Float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Float latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public Float getGeo_altitude() {
+    public Double getGeo_altitude() {
         return geo_altitude;
     }
 
-    public void setGeo_altitude(Float geo_altitude) {
+    public void setGeo_altitude(Double geo_altitude) {
         this.geo_altitude = geo_altitude;
     }
 
-    public Float getVelocity() {
+    public Double getVelocity() {
         return velocity;
     }
 
-    public void setVelocity(Float velocity) {
+    public void setVelocity(Double velocity) {
         this.velocity = velocity;
     }
 
-    public Float getHeading() {
+    public Double getHeading() {
         return heading;
     }
 
-    public void setHeading(Float heading) {
+    public void setHeading(Double heading) {
         this.heading = heading;
     }
 
-    public Float getVertical_rate() {
+    public Double getVertical_rate() {
         return vertical_rate;
     }
 
-    public void setVertical_rate(Float vertical_rate) {
+    public void setVertical_rate(Double vertical_rate) {
         this.vertical_rate = vertical_rate;
     }
 
-    public Float getBaro_altitude() {
+    public Double getBaro_altitude() {
         return baro_altitude;
     }
 
-    public void setBaro_altitude(Float baro_altitude) {
+    public void setBaro_altitude(Double baro_altitude) {
         this.baro_altitude = baro_altitude;
     }
 
