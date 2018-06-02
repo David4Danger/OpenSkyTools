@@ -1,4 +1,10 @@
 public class SkyInfo {
+    /*
+     * The SkyInfo class is used to define common methods which make use of the
+     * OpenSkyAPI object. Common cases such as the fastest plane in the sky, or the
+     * closest plane to a cardinal coordinate location are created by this object.
+     */
+
     private OpenSkyAPI API;
     private Airplane[] states;
     private Integer lastTimestamp;
@@ -29,12 +35,14 @@ public class SkyInfo {
         }
 
         System.out.println("Current fastest plane: " + curCallsign.trim() + ", at " + curVelocity + "m/s");
+        System.out.println("Updated at: " + lastTimestamp);
     }
 
-    // Find the closest plane to the given coordinates. Uses Haversine method.
-    /* Sample inputs:
-    Eiffel Tower: 48.8584, 2.2945
-    JFK Airport: 40.6413, 73.7781
+    /*
+     * Find the closest plane to the given coordinates. Uses Haversine method to calculate.
+     * Sample inputs:
+     * Eiffel Tower: 48.8584, 2.2945
+     * JFK Airport: 40.6413, 73.7781
      */
     private void closestPlane(Double Longitude, Double Latitude) {
         Double closestDistance = Double.MAX_VALUE;
@@ -65,6 +73,7 @@ public class SkyInfo {
 
         System.out.println("Current closest plane to source: " + curCallsign.trim() +
                            ", " + finalDistance + "m away.");
+        System.out.println("Updated at: " + lastTimestamp);
     }
 
     public static void main (String[] args) {

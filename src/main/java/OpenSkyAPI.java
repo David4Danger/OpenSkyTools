@@ -2,6 +2,11 @@ import org.json.*;
 import org.springframework.web.client.RestTemplate;
 
 public class OpenSkyAPI {
+  /*
+   * This class makes a call to the OpenSky 'all state' endpoint and stores all plane
+   * states in an array of Airplane objects.
+   */
+
   private Airplane[] planes;
   private String username, password;
   private Integer lastCheck;
@@ -12,6 +17,11 @@ public class OpenSkyAPI {
     this.lastCheck = -1;
   }
 
+  /*
+   * This method returns the Airplane state array. Can be called multiple times in order to
+   * update a state array. Until more endpoints are used, only one OpenSkyAPI object should
+   * be created, but this won't be enforced.
+   */
   public Airplane[] getStates() {
     RestTemplate restTemplate = new RestTemplate();
     String response = restTemplate.getForObject("https://" + username + ":" + password + "@opensky-network.org/api/states/all", String.class);
@@ -30,6 +40,7 @@ public class OpenSkyAPI {
         jsonState = jsonStates.getJSONArray(i);
         planes[i] = new Airplane();
 
+        // The next 6 fields cannot be null
         planes[i].setIcao24(jsonState.getString(0));
         planes[i].setOrigin_country(jsonState.getString(2));
         planes[i].setLast_contact(jsonState.getInt(4));
@@ -37,6 +48,7 @@ public class OpenSkyAPI {
         planes[i].setSpi(jsonState.getBoolean(15));
         planes[i].setPosition_source(jsonState.getInt(16));
 
+        // The remaining fields can be null
         if (jsonState.get(1).toString() != "null") {
           planes[i].setCallsign(jsonState.getString(1));
         } else {
@@ -107,6 +119,7 @@ public class OpenSkyAPI {
     return null;
   }
 
+  // Grab the timestamp of the latest call to the OpenSky API
   public Integer getTimestamp() {
     return lastCheck;
   }

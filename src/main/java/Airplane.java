@@ -1,4 +1,11 @@
 public class Airplane {
+    /*
+     * Airplane class. Used to store all the state information returned from an OpenSky call on
+     * a per airplane basis. If requesting state information for a single plane by callsign create
+     * a single airplane object. If request state information for all planes create an array of planes
+     * using the size of the returned state array.
+     */
+
     private String icao24, callsign, origin_country, squawk;
     private Integer time_position, last_contact, position_source;
     private Double longitude, latitude, geo_altitude, velocity, heading, vertical_rate, baro_altitude;
@@ -25,6 +32,8 @@ public class Airplane {
                 ", spi=" + spi +
                 '}';
     }
+
+    // All getters and setters below
 
     public String getIcao24() {
         return icao24;
