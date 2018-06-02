@@ -71,8 +71,12 @@ public class SkyInfo {
         }
         int finalDistance = (int) Math.round(closestDistance);
 
-        System.out.println("Current closest plane to source: " + curCallsign.trim() +
-                           ", " + finalDistance + "m away.");
+        if (curCallsign != "") {
+            System.out.println("Current closest plane to source: " + curCallsign.trim() +
+                    ", " + finalDistance + "m away.");
+        } else {
+            System.out.println("Current closest plane to source: " + finalDistance + "m away.");
+        }
         System.out.println("Updated at: " + lastTimestamp);
     }
 
